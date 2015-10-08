@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arvs", "arvs\arvs.csproj", "{0BEC601B-03A2-43C8-9F49-27A4AEC40F96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BEC601B-03A2-43C8-9F49-27A4AEC40F96}.Debug|x86.ActiveCfg = Debug|x86
+		{0BEC601B-03A2-43C8-9F49-27A4AEC40F96}.Debug|x86.Build.0 = Debug|x86
+		{0BEC601B-03A2-43C8-9F49-27A4AEC40F96}.Release|x86.ActiveCfg = Release|x86
+		{0BEC601B-03A2-43C8-9F49-27A4AEC40F96}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = arvs\arvs.csproj
+	EndGlobalSection
+EndGlobal
