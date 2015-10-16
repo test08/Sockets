@@ -33,7 +33,7 @@ namespace arvs
 				
 			byte[] AnswerBuffer = new byte[11];
 			AnswerBuffer = Encoding.UTF8.GetBytes (request.Length.ToString ());
-			//Thread.Sleep (5000);
+			Thread.Sleep (10000);
 			networkStream.Write (AnswerBuffer, 0, AnswerBuffer.Length);
 			Client.Close ();
 			networkStream.Close ();
@@ -52,20 +52,20 @@ namespace arvs
 					    
 			while (true) {
 
+				TcpClient Client = Listener.AcceptTcpClient();
+
+				Thread Thread = new Thread(new ParameterizedThreadStart(ClientThread));
+				Thread.Start(Client);
+
 				//ThreadPool.QueueUserWorkItem (new WaitCallback (ClientThread), 
 				  //		                        Listener.AcceptTcpClient ());
-
-
-				Thread myThread = new Thread(ClientThread); //Создаем новый объект потока (Thread)
-
-				myThread.Start(Listener.AcceptTcpClient ()); //
 
 
 			}
 								
 		}
 
-		static void ClientThread (Object client)
+		 static void ClientThread (Object client)
 		{
 			new Client ((TcpClient)client);
 		}
