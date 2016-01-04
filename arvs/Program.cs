@@ -10,10 +10,30 @@ using arvs;
 
 namespace arvs
 {
-	class Client
+
+	class Server
 	{
-				           				    
-		public Client (TcpClient Client)
+		TcpListener Listener;
+
+		public Server (int Port)
+		{
+			Listener = new TcpListener (IPAddress.Any, Port); 
+			Listener.Start (); 
+					    
+			while (true) {
+				TcpClient Client = Listener.AcceptTcpClient();
+				Thread Thread = new Thread(new ParameterizedThreadStart(ClientThread));
+				Thread.Start(Client);
+			}
+								
+		}
+
+		 static void ClientThread (Object client)
+		{
+			processClient((TcpClient)client);
+		}
+
+		private static void processClient (TcpClient Client)
 		{
 			NetworkStream networkStream = Client.GetStream ();
 			StringBuilder request = new StringBuilder ();
@@ -29,45 +49,15 @@ namespace arvs
 
 			LogWriter.writeLog (requestString);
 			Console.WriteLine (requestString);	
-							               
-				
+
+
 			byte[] AnswerBuffer = new byte[11];
 			AnswerBuffer = Encoding.UTF8.GetBytes (request.Length.ToString ());
 			Thread.Sleep (10000);
 			networkStream.Write (AnswerBuffer, 0, AnswerBuffer.Length);
 			Client.Close ();
 			networkStream.Close ();
-						               
-		}
-	}
 
-	class Server
-	{
-		TcpListener Listener;
-
-		public Server (int Port)
-		{
-			Listener = new TcpListener (IPAddress.Any, Port); 
-			Listener.Start (); 
-					    
-			while (true) {
-
-				TcpClient Client = Listener.AcceptTcpClient();
-
-				Thread Thread = new Thread(new ParameterizedThreadStart(ClientThread));
-				Thread.Start(Client);
-
-				//ThreadPool.QueueUserWorkItem (new WaitCallback (ClientThread), 
-				  //		                        Listener.AcceptTcpClient ());
-
-
-			}
-								
-		}
-
-		 static void ClientThread (Object client)
-		{
-			new Client ((TcpClient)client);
 		}
 
 		~Server ()
@@ -80,8 +70,7 @@ namespace arvs
 		static void Main (string[] args)
 		{
 
-			//ThreadPool.SetMaxThreads (10, 10);
-			//ThreadPool.SetMinThreads (4, 4);
+
 			new Server (8001);
 		}
 	}

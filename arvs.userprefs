@@ -1,23 +1,9 @@
-﻿<Properties>
+﻿<Properties StartupItem="arvs\arvs.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="arvs/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="arvs\Program.cs">
     <Files>
-      <File FileName="arvs/Program.cs" Line="54" Column="5" />
+      <File FileName="arvs\Program.cs" Line="31" Column="28" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="arvs" expanded="True">
-            <Node name="Program.cs" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True">
-          <Node name="arvs" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

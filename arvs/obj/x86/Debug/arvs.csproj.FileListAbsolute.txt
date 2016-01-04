@@ -1,0 +1,5 @@
+C:\Users\ri\SOCKETS\arvs\arvs\bin\Debug\arvs.exe
+C:\Users\ri\SOCKETS\arvs\arvs\bin\Debug\arvs.pdb
+C:\Users\ri\SOCKETS\arvs\arvs\obj\x86\Debug\arvs.csprojResolveAssemblyReference.cache
+C:\Users\ri\SOCKETS\arvs\arvs\obj\x86\Debug\arvs.exe
+C:\Users\ri\SOCKETS\arvs\arvs\obj\x86\Debug\arvs.pdb
